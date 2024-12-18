@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mass-Mail Dispatcher</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#write-email">WRITE EMAIL</a></li>
+        <li><a href="#valid-emails">VALID EMAILS</a></li>
+        <li><a href="#invalid-emails">INVALID EMAILS</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="bg">
+    <div class="container">
+      <div class="select animate_animated animate_fadeInDown">
+        <h1 id="head">Mass Mail Dispatcher</h1>
+        <input type="file" id="upload" accept=".csv">
+      </div>
+      <div class="mailInfo">
+        <form onsubmit="sendEmail(); reset(); return false;">
+          <h2 id="box-heading">WRITE YOUR EMAIL HERE</h2>
+          <input type="email" id="from" placeholder="From (Email ID)" required>
+          <input type="text" id="subject" placeholder="Subject" required>
+          <textarea id="msg" placeholder="Body" required></textarea>
+          <input type="submit" id="submit" value="Send">
+        </form>
+      </div>
+    </div>
+    <hr>
+    <div class="tables">
+      <div class="valTab" id="valid-emails">
+        <h2>Valid Emails (<span id="valCount">0</span>)</h2>
+        <table id="val">
+          <thead>
+            <tr>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+      <div class="InvalidTab" id="invalid-emails">
+        <h2>Invalid Emails (<span id="InvalCount">0</span>)</h2>
+        <table id="Inval">
+          <thead>
+            <tr>
+              <th>Email</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a href="#" id="scroll-top-btn"><i class="fas fa-arrow-up"></i></a>
+
+  <script src="main.js"></script>
+</body>
+</html>
